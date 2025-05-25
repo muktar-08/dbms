@@ -1,0 +1,20 @@
+CREATE TABLE Employee (
+EMPNO INT,
+ENAME VARCHAR(50),
+JOB VARCHAR(50),
+MGR INT,
+SAL DECIMAL(10, 2)
+);
+ALTER TABLE Employee
+ADD COLUMN COMMISSION DECIMAL(10, 2);
+INSERT INTO Employee (EMPNO, ENAME, JOB, MGR, SAL, COMMISSION) VALUES
+(101, 'John Doe', 'Manager', NULL, 5000.00, NULL),
+(102, 'Jane Smith', 'Developer', 101, 4000.00, NULL),
+(103, 'Alice Johnson', 'Designer', 101, 4500.00, NULL),
+(104, 'Bob Brown', 'Analyst', 101, 4200.00, NULL),
+(105, 'Emma Wilson', 'Tester', 102, 3800.00, NULL);
+UPDATE Employee
+SET JOB = CONCAT('Senior ', JOB);
+ALTER TABLE Employee
+CHANGE COLUMN MGR MANAGER_NO INT;
+DELETE FROM Employee WHERE EMPNO = 105;
